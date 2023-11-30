@@ -3,6 +3,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.math.BigInteger;
 
 
 public class App {
@@ -25,8 +26,8 @@ public class App {
         return lines;
     }
 
-    public static ArrayList<String> parser(ArrayList<String> lines) {
-        ArrayList<String> parsedLines = new ArrayList<String>();
+    public static String parser(ArrayList<String> lines) {
+        String parsedLines = "";
         for(String line : lines) {
             String [] tokens = line.split(" ");
             //tokens ADD, AND, NAND, NOR, ADDI, ANDI, LD, ST, CMP, JUMP, JE, JA, JB, JAE,
@@ -37,83 +38,108 @@ public class App {
             }
             
             if(tokens[0].equals("ADD")) {
-                String src2 = intToHex(tokens[3], 4);
-                String src1 = intToHex(tokens[2], 4);
-                String dest = intToHex(tokens[1], 4);
-                parsedLines.add("0000" + dest + src1 +  "00" + src2);
+                String opcode = "0000";
+                String dst = intToBinaryString(tokens[1], 4);
+                String src1 = intToBinaryString(tokens[2], 4);
+                String src2 = intToBinaryString(tokens[3], 4);
+                String imm = "00";
+                parsedLines += opcode + dst + src1 + imm + src2 ;
+                
             }
             else if(tokens[0].equals("ADDI")) {
                 //imm value
-                String imm = intToHex(tokens[3], 6);
-                String src1 = intToHex(tokens[2], 4);
-                String dest = intToHex(tokens[1], 4);
-                parsedLines.add("0001" + dest + src1 + imm);
+                String opcode = "0001";
+                String dst = intToBinaryString(tokens[1], 4);
+                String src1 = intToBinaryString(tokens[2], 4);
+                String imm = intToBinaryString(tokens[3], 4);
+                parsedLines += (opcode + dst + src1 + imm);
+
+                
             }
             else if(tokens[0].equals("AND")) {
-                String src2 = intToHex(tokens[3], 4);
-                String src1 = intToHex(tokens[2], 4);
-                String dest = intToHex(tokens[1], 4);
-                parsedLines.add("0010" + dest + src1 +  "00" + src2);
+                String opcode = "0010";
+                String dst = intToBinaryString(tokens[1], 4);
+                String src1 = intToBinaryString(tokens[2], 4);
+                String src2 = intToBinaryString(tokens[3], 4);
+                String imm = "00";
+                parsedLines += (opcode + dst + src1 + imm + src2);
             }
             else if(tokens[0].equals("ANDI")) {
                 //imm value
-                String imm = intToHex(tokens[3], 6);
-                String src1 = intToHex(tokens[2], 4);
-                String dest = intToHex(tokens[1], 4);
-                parsedLines.add("0011" + dest + src1 + imm);
+                String opcode = "0011";
+                String dst = intToBinaryString(tokens[1], 4);
+                String src1 = intToBinaryString(tokens[2], 4);
+                String imm = intToBinaryString(tokens[3], 4);
+                parsedLines += (opcode + dst + src1 + imm);
+
             }
             else if(tokens[0].equals("NAND")) {
-                String src2 = intToHex(tokens[3], 4);
-                String src1 = intToHex(tokens[2], 4);
-                String dest = intToHex(tokens[1], 4);
-                parsedLines.add("0100" + dest + src1 +  "00" + src2);
+                String opcode = "0100";
+                String dst = intToBinaryString(tokens[1], 4);
+                String src1 = intToBinaryString(tokens[2], 4);
+                String src2 = intToBinaryString(tokens[3], 4);
+                String imm = "00";
+                parsedLines += (opcode + dst + src1 + imm + src2);
+
             }
             else if(tokens[0].equals("NOR")) {
-                String src2 = intToHex(tokens[3], 4);
-                String src1 = intToHex(tokens[2], 4);
-                String dest = intToHex(tokens[1], 4);
-                parsedLines.add("0101" + dest + src1 +  "00" + src2);
+                String opcode = "0101";
+                String dst = intToBinaryString(tokens[1], 4);
+                String src1 = intToBinaryString(tokens[2], 4);
+                String src2 = intToBinaryString(tokens[3], 4);
+                String imm = "00";
+                parsedLines += (opcode + dst + src1 + imm + src2);
             }
             else if(tokens[0].equals("LD")) {
-                String address = intToHex(tokens[2], 10);
-                String dest = intToHex(tokens[1], 4);
-                parsedLines.add("0110" + dest + address);
+                String opcode = "0110";
+                String dst = intToBinaryString(tokens[1], 4);
+                String address = intToBinaryString(tokens[2], 10);
+                parsedLines += (opcode + dst + address);
             }
             else if(tokens[0].equals("ST")) {
-                String address = intToHex(tokens[2], 10);
-                String dest = intToHex(tokens[1], 4);
-                parsedLines.add("0111" + dest + address);
+                String opcode = "0111";
+                String src = intToBinaryString(tokens[1], 4);
+                String address = intToBinaryString(tokens[2], 10);
+                parsedLines += (opcode + src + address);
             }
             else if(tokens[0].equals("CMP")) {
-                String op1 = intToHex(tokens[1], 7);
-                String op2 = intToHex(tokens[2], 7);
-                parsedLines.add("1001" + op1 + op2);
+                String opcode = "1000";
+                String flag = "000000";
+                String op1 = intToBinaryString(tokens[1], 4);
+                String op2 = intToBinaryString(tokens[2], 4);
+                parsedLines += (opcode + flag + op1 + op2);
+
             }
             else if(tokens[0].equals("JUMP")) {
-                String address = intToHex(tokens[1], 14);
-                parsedLines.add("1000" + address);
+                String opcode = "1001";
+                // String address = intToBinaryString(tokens[1], 14);
+                // 2's complement
             }
             else if(tokens[0].equals("JE")) {
-                String address = intToHex(tokens[1], 14);
-                parsedLines.add("1010" + address);
+                String opcode = "1010";
+                String address = intToBinaryString(tokens[1], 14);
+                parsedLines += (opcode + address);
             }
             else if(tokens[0].equals("JA")) {
-                String address = intToHex(tokens[1], 14);
-                parsedLines.add("1011" + address);
+                String opcode = "1010";
+                String address = intToBinaryString(tokens[1], 14);
+                parsedLines += (opcode + address);
             }
             else if(tokens[0].equals("JB")) {
-                String address = intToHex(tokens[1], 14);
-                parsedLines.add("1100" + address);
+                String opcode = "1010";
+                String address = intToBinaryString(tokens[1], 14);
+                parsedLines += (opcode + address);
             }
             else if(tokens[0].equals("JAE")) {
-                String address = intToHex(tokens[1], 14);
-                parsedLines.add("1101" + address);
+                String opcode = "1010";
+                String address = intToBinaryString(tokens[1], 14);
+                parsedLines += (opcode + address);
             }
             else if(tokens[0].equals("JBE")) {
-                String address = intToHex(tokens[1], 14);
-                parsedLines.add("1110" + address);
+                String opcode = "1010";
+                String address = intToBinaryString(tokens[1], 14);
+                parsedLines += (opcode + address);
             }
-            // maybe add JRA ????
             else
                 System.out.println("Error: Invalid Instruction " + tokens[0]);
         }
@@ -121,19 +147,61 @@ public class App {
         return parsedLines;
     }
 
-    public static String intToHex(String num, int length) {
-        //4 bit hex
+    public static String intToBinaryString(String num, int length) {
         int decimal = Integer.parseInt(num);
-        String hex = Integer.toHexString(decimal);
-        int hexLength = hex.length();
+        String binary = Integer.toBinaryString(decimal);
+        int binaryLength = binary.length();
         String temp = "";
-        if (hexLength < length) {
-            for (int i = 0; i < length - hexLength ; i++)
+        if (binaryLength < length) {
+            for (int i = 0; i < length - binaryLength ; i++)
                 temp = "0" + temp;
-            hex = temp.substring(hex.length() - 1) + hex;
+            binary = temp + binary;
+        }
+        return binary;
+    }
+
+    public static String binaryToHex(String binary) {
+        StringBuilder reversedBinary = new StringBuilder(binary).reverse();
+        String [] reversedBinaryChunks = reversedBinary.toString().split("(?<=\\G.{4})");
+
+        String hex = "";
+
+        for (int i = 0; i < reversedBinaryChunks.length; i++) {
+            StringBuilder r_binary = new StringBuilder(reversedBinaryChunks[i]).reverse();
+            System.out.println(r_binary.toString());
+            hex += Integer.toString(Integer.parseInt(r_binary.toString(), 2), 16);
         }
 
+        hex = new StringBuilder(hex).reverse().toString();
         return hex;
+    }
+
+    public static String twosComplement(int decimalNumber) {
+        // Negatif sayıları işlemek için int'in binary string temsilini alın
+        String binaryString = Integer.toBinaryString(decimalNumber);
+
+        // Two's complement hesaplama
+        int length = binaryString.length();
+        StringBuilder twosComplement = new StringBuilder();
+        boolean carry = true;
+
+        for (int i = length - 1; i >= 0; i--) {
+            char currentBit = binaryString.charAt(i);
+
+            // Bitleri ters çevir ve carry'yi ekleyerek two's complement oluştur
+            if (carry) {
+                if (currentBit == '0') {
+                    twosComplement.insert(0, '1');
+                    carry = false;
+                } else {
+                    twosComplement.insert(0, '0');
+                }
+            } else {
+                twosComplement.insert(0, currentBit);
+            }
+        }
+
+        return twosComplement.toString();
     }
 
     public static void writeToFile(ArrayList<String> parsedLines) {
@@ -156,8 +224,8 @@ public class App {
         ArrayList<String> lines = new ArrayList<String>();
         lines = getLines();
 
-        ArrayList<String> parsed = parser(lines);
-        writeToFile(parsed);
+        String parsed = parser(lines);
+        System.out.println(binaryToHex(parsed));
         
 
     }
