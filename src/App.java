@@ -112,8 +112,8 @@ public class App {
             }
             else if(tokens[0].equals("JUMP")) {
                 String opcode = "1001";
-                // String address = intToBinaryString(tokens[1], 14);
-                // 2's complement
+                String address = twosComplement(tokens[1], 14);
+                parsedLines += (opcode + address);
             }
             else if(tokens[0].equals("JE")) {
                 String opcode = "1010";
@@ -176,12 +176,9 @@ public class App {
         return hex;
     }
 
-    public static String twosComplement(int decimalNumber) {
+    public static String twosComplement(String num, int length) {
         // Negatif sayıları işlemek için int'in binary string temsilini alın
-        String binaryString = Integer.toBinaryString(decimalNumber);
-
-        // Two's complement hesaplama
-        int length = binaryString.length();
+        String binaryString = intToBinaryString(num, length);
         StringBuilder twosComplement = new StringBuilder();
         boolean carry = true;
 
