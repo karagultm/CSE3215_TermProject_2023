@@ -201,14 +201,15 @@ public class App {
         return twosComplement.toString();
     }
 
-    public static void writeToFile(ArrayList<String> parsedLines) {
+    public static void writeToFile(String hex) {
         try {
             FileWriter fileWriter = new FileWriter("src/output.hex");
             BufferedWriter out = new BufferedWriter(fileWriter);
-            out.write("v2.0 raw \n");
-            for(String line : parsedLines) {
-                out.write(line);
-                out.write(" ");
+            out.write("v2.0 raw\n");
+            for (int i = 0; i < hex.length(); i++) {
+                out.write(hex.charAt(i));
+                if (i % 5 == 0 && i != 0)
+                    out.write(" ");
             }
             out.close();
         } catch (Exception e) {
@@ -222,7 +223,10 @@ public class App {
         lines = getLines();
 
         String parsed = parser(lines);
-        System.out.println(binaryToHex(parsed));
+        String hex = binaryToHex(parsed);
+        writeToFile(hex);
+
+
         
 
     }
