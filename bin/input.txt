@@ -1,4 +1,0 @@
-JUMP 5
-ADD R7 R5 R2
-NOR R7 R5 R2
-
