@@ -103,7 +103,7 @@ public class App {
                 parsedLines += (opcode + src + address);
             }
             else if(tokens[0].equals("CMP")) {
-                String opcode = "1000";
+                String opcode = "1001";
                 String flag = "000000";
                 String op1 = intToBinaryString(tokens[1], 4);
                 String op2 = intToBinaryString(tokens[2], 4);
@@ -111,7 +111,7 @@ public class App {
 
             }
             else if(tokens[0].equals("JUMP")) {
-                String opcode = "1001";
+                String opcode = "1000";
                 String address = twosComplement(tokens[1], 14);
                 parsedLines += (opcode + address);
             }
@@ -121,22 +121,22 @@ public class App {
                 parsedLines += (opcode + address);
             }
             else if(tokens[0].equals("JA")) {
-                String opcode = "1010";
+                String opcode = "1011";
                 String address = intToBinaryString(tokens[1], 14);
                 parsedLines += (opcode + address);
             }
             else if(tokens[0].equals("JB")) {
-                String opcode = "1010";
+                String opcode = "1100";
                 String address = intToBinaryString(tokens[1], 14);
                 parsedLines += (opcode + address);
             }
             else if(tokens[0].equals("JAE")) {
-                String opcode = "1010";
+                String opcode = "1101";
                 String address = intToBinaryString(tokens[1], 14);
                 parsedLines += (opcode + address);
             }
             else if(tokens[0].equals("JBE")) {
-                String opcode = "1010";
+                String opcode = "1110";
                 String address = intToBinaryString(tokens[1], 14);
                 parsedLines += (opcode + address);
             }
