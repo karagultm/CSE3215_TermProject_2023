@@ -131,7 +131,16 @@ public class App {
     }
 
     public static String intToBinaryString(String num, int length) {
+        int maxNum = (int) Math.pow(2, length);
         int decimal = Integer.parseInt(num);
+        if(decimal > maxNum) {
+            System.out.println("Error: OVERFLOW " + num);
+            System.exit(0);
+        }
+        if(decimal < 0) {
+            System.out.println("Error: UNDERFLOW " + num);
+            System.exit(0);
+        }
         String binary = Integer.toBinaryString(decimal);
         int binaryLength = binary.length();
         String temp = "";
@@ -202,6 +211,7 @@ public class App {
         ArrayList<String> parsed = parser(lines);
         ArrayList<String> hex = binaryToHex(parsed);
 
+        //terminal output
         for (String line : hex) {
             System.out.println(line);
         }
