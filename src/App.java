@@ -156,6 +156,11 @@ public class App {
     }
 
     public static String twosComplement(String num, int length) {
+        int decimal = Integer.parseInt(num);
+        if (decimal >= 0) {
+            String binary = intToBinaryString(num, length);
+            return binary;
+        }
         num = num.replace("-", "");
         String binary = intToBinaryString(num, length);
         String twos = "";
