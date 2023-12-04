@@ -59,10 +59,10 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
-    <comp lib="0" loc="(210,170)" name="Pin">
+    <comp lib="0" loc="(220,220)" name="Pin">
       <a name="tristate" val="false"/>
     </comp>
-    <comp lib="0" loc="(220,220)" name="Pin">
+    <comp lib="0" loc="(210,170)" name="Pin">
       <a name="tristate" val="false"/>
     </comp>
   </circuit>
@@ -71,5 +71,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
+    <comp lib="6" loc="(374,339)" name="Text">
+      <a name="text" val="selamsssss"/>
+    </comp>
   </circuit>
 </project>
