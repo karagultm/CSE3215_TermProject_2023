@@ -1,0 +1,8 @@
++dlatch
++dflipflop
++Register
+-1 bit adder
+-18 bit adder 
+-ALU
+-PC
+-RegisterFile
