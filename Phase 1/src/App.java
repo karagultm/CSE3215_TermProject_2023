@@ -12,7 +12,7 @@ public class App {
         ArrayList<String> lines = new ArrayList<String>();
 
         try {
-            FileReader fileReader = new FileReader("src/input.txt");
+            FileReader fileReader = new FileReader("input.txt");
             BufferedReader in = new BufferedReader(fileReader);
             while ((line = in.readLine()) != null) {
                 lines.add(line);
@@ -191,7 +191,7 @@ public class App {
 
     public static void writeToFile(ArrayList<String> hexLines) {
         try {
-            FileWriter fileWriter = new FileWriter("src/output.hex");
+            FileWriter fileWriter = new FileWriter("output.hex");
             BufferedWriter out = new BufferedWriter(fileWriter);
             out.write("v2.0 raw\n");
             for (String line : hexLines) {
