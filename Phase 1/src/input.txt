@@ -1,2 +1,2 @@
-LD R0 10
-ST R0 11
+CMP R0 R1
+JE 5
