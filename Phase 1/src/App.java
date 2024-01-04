@@ -12,7 +12,7 @@ public class App {
         ArrayList<String> lines = new ArrayList<String>();
 
         try {
-            FileReader fileReader = new FileReader("input.txt");
+            FileReader fileReader = new FileReader("Phase 1/src/input.txt");
             BufferedReader in = new BufferedReader(fileReader);
             while ((line = in.readLine()) != null) {
                 lines.add(line);
@@ -94,10 +94,11 @@ public class App {
                 parsedLines.add(opcode + src + address);
             } else if (tokens[0].equals("CMP")) {
                 String opcode = "1001";
-                String flag = "000000";
+                String flag = "0000";
                 String op1 = intToBinaryString(tokens[1], 4);
                 String op2 = intToBinaryString(tokens[2], 4);
-                parsedLines.add(opcode + flag + op1 + op2);
+                String flag2 = "00";
+                parsedLines.add(opcode + flag + op1 + flag2 + op2);
 
             } else if (tokens[0].equals("JUMP")) {
                 String opcode = "1000";
@@ -191,7 +192,7 @@ public class App {
 
     public static void writeToFile(ArrayList<String> hexLines) {
         try {
-            FileWriter fileWriter = new FileWriter("output.hex");
+            FileWriter fileWriter = new FileWriter("Phase 1/src/output.hex");
             BufferedWriter out = new BufferedWriter(fileWriter);
             out.write("v2.0 raw\n");
             for (String line : hexLines) {
