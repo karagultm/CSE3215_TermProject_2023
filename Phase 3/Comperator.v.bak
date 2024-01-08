@@ -1,14 +1,13 @@
-module 18bitComperator(
+module Comperator(
     input [17:0] A,
     input [17:0] B,
-    output reg above,
-    output reg equal,
-    output reg below
+    output above,
+    output equal,
+    output below
 );
     always @(*)
     begin
-        if (A > B) 
-	begin
+        if (A > B) begin
             above = 1;
             equal = 0;
             below = 0;

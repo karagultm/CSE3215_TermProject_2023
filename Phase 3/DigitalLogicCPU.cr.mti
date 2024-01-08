@@ -1,34 +1,58 @@
-{C:/GitHub/CSE3215_TermProject_2023/Phase 3/ROM.v} {1 {vlog -work work -stats=none {C:/GitHub/CSE3215_TermProject_2023/Phase 3/ROM.v}
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module ROM
-
-Top level modules:
-	ROM
-
-} {} {}} {C:/GitHub/CSE3215_TermProject_2023/Phase 3/ALU.v} {1 {vlog -work work -stats=none {C:/GitHub/CSE3215_TermProject_2023/Phase 3/ALU.v}
+{C:/GitHub/CSE3215_TermProject_2023/Phase 3/ALU.v} {1 {vlog -work work -stats=none {C:/GitHub/CSE3215_TermProject_2023/Phase 3/ALU.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module ALU
 
 Top level modules:
 	ALU
 
-} {} {}} {C:/GitHub/CSE3215_TermProject_2023/Phase 3/18bitComperator.v} {0 {vlog -work work -stats=none {C:/GitHub/CSE3215_TermProject_2023/Phase 3/18bitComperator.v}
+} {} {}} {C:/GitHub/CSE3215_TermProject_2023/Phase 3/ROM.v} {1 {vlog -work work -stats=none {C:/GitHub/CSE3215_TermProject_2023/Phase 3/ROM.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-** Error: (vlog-13069) C:/GitHub/CSE3215_TermProject_2023/Phase 3/18bitComperator.v(1): near "18": syntax error, unexpected INTEGER NUMBER.
+-- Compiling module ROM
 
-} {3.0 4.0} {}} {C:/GitHub/CSE3215_TermProject_2023/Phase 3/RAM.v} {1 {vlog -work work -stats=none {C:/GitHub/CSE3215_TermProject_2023/Phase 3/RAM.v}
+Top level modules:
+	ROM
+
+} {} {}} {C:/GitHub/CSE3215_TermProject_2023/Phase 3/RAM.v} {1 {vlog -work work -stats=none {C:/GitHub/CSE3215_TermProject_2023/Phase 3/RAM.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module RAM
 
 Top level modules:
 	RAM
 
-} {} {}} {C:/GitHub/CSE3215_TermProject_2023/Phase 3/cpu.v} {1 {vlog -work work -stats=none {C:/GitHub/CSE3215_TermProject_2023/Phase 3/cpu.v}
+} {} {}} {C:/GitHub/CSE3215_TermProject_2023/Phase 3/18bitComperator.v} {0 {vlog -work work -stats=none {C:/GitHub/CSE3215_TermProject_2023/Phase 3/18bitComperator.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module cpu
+** Error: (vlog-13069) C:/GitHub/CSE3215_TermProject_2023/Phase 3/18bitComperator.v(1): near "18": syntax error, unexpected INTEGER NUMBER.
 
-Top level modules:
-	cpu
+} {3.0 4.0} {}} {C:/GitHub/CSE3215_TermProject_2023/Phase 3/RegisterFile.v} {0 {vlog -work work -stats=none {C:/GitHub/CSE3215_TermProject_2023/Phase 3/RegisterFile.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+** Warning: (vlog-6) -- Waiting for lock by "Muhammed@DESKTOP-92QOO75, pid = 6116
+". Lockfile is "C:/GitHub/CSE3215_TermProject_2023/Phase 3/work/_lock".
+** Warning: (vlog-6) -- Waiting for lock by "Muhammed@DESKTOP-92QOO75, pid = 6116
+". Lockfile is "C:/GitHub/CSE3215_TermProject_2023/Phase 3/work/_lock".
+** Warning: (vlog-6) -- Waiting for lock by "Muhammed@DESKTOP-92QOO75, pid = 6116
+". Lockfile is "C:/GitHub/CSE3215_TermProject_2023/Phase 3/work/_lock".
+** Warning: (vlog-6) -- Waiting for lock by "Muhammed@DESKTOP-92QOO75, pid = 6116
+". Lockfile is "C:/GitHub/CSE3215_TermProject_2023/Phase 3/work/_lock".
+** Warning: (vlog-6) -- Waiting for lock by "Muhammed@DESKTOP-92QOO75, pid = 6116
+". Lockfile is "C:/GitHub/CSE3215_TermProject_2023/Phase 3/work/_lock".
+** Warning: (vlog-6) -- Waiting for lock by "Muhammed@DESKTOP-92QOO75, pid = 6116
+". Lockfile is "C:/GitHub/CSE3215_TermProject_2023/Phase 3/work/_lock".
+** Warning: (vlog-6) -- Waiting for lock by "Muhammed@DESKTOP-92QOO75, pid = 6116
+". Lockfile is "C:/GitHub/CSE3215_TermProject_2023/Phase 3/work/_lock".
+** Warning: (vlog-6) -- Waiting for lock by "Muhammed@DESKTOP-92QOO75, pid = 6116
+". Lockfile is "C:/GitHub/CSE3215_TermProject_2023/Phase 3/work/_lock".
+** Warning: (vlog-6) -- Waiting for lock by "Muhammed@DESKTOP-92QOO75, pid = 6116
+". Lockfile is "C:/GitHub/CSE3215_TermProject_2023/Phase 3/work/_lock".
+** Warning: (vlog-6) -- Waiting for lock by "Muhammed@DESKTOP-92QOO75, pid = 6116
+". Lockfile is "C:/GitHub/CSE3215_TermProject_2023/Phase 3/work/_lock".
+** Warning: (vlog-6) -- Waiting for lock by "Muhammed@DESKTOP-92QOO75, pid = 6116
+". Lockfile is "C:/GitHub/CSE3215_TermProject_2023/Phase 3/work/_lock".
+** Warning: (vlog-6) -- Waiting for lock by "Muhammed@DESKTOP-92QOO75, pid = 6116
+". Lockfile is "C:/GitHub/CSE3215_TermProject_2023/Phase 3/work/_lock".
+** Warning: (vlog-6) -- Waiting for lock by "Muhammed@DESKTOP-92QOO75, pid = 6116
+". Lockfile is "C:/GitHub/CSE3215_TermProject_2023/Phase 3/work/_lock".
+** Warning: (vlog-6) -- Waiting for lock by "Muhammed@DESKTOP-92QOO75, pid = 6116
+". Lockfile is "C:/GitHub/CSE3215_TermProject_2023/Phase 3/work/_lock".
 
 } {} {}} {C:/GitHub/CSE3215_TermProject_2023/Phase 3/ControlUnit.v} {0 {vlog -work work -stats=none {C:/GitHub/CSE3215_TermProject_2023/Phase 3/ControlUnit.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -36,35 +60,4 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 ** Error: (vlog-13069) C:/GitHub/CSE3215_TermProject_2023/Phase 3/ControlUnit.v(21): near "begin": syntax error, unexpected begin.
 ** Error: C:/GitHub/CSE3215_TermProject_2023/Phase 3/ControlUnit.v(21): (vlog-13205) Syntax error found in the scope following 'always_comb'. Is there a missing '::'?
 
-} {4.0 6.0} {}} {C:/GitHub/CSE3215_TermProject_2023/Phase 3/RegisterFile.v} {0 {vlog -work work -stats=none {C:/GitHub/CSE3215_TermProject_2023/Phase 3/RegisterFile.v}
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-** Warning: (vlog-6) -- Waiting for lock by "Muhammed@DESKTOP-92QOO75, pid = 6116
-". Lockfile is "C:/GitHub/CSE3215_TermProject_2023/Phase 3/work/_lock".
-** Warning: (vlog-6) -- Waiting for lock by "Muhammed@DESKTOP-92QOO75, pid = 6116
-". Lockfile is "C:/GitHub/CSE3215_TermProject_2023/Phase 3/work/_lock".
-** Warning: (vlog-6) -- Waiting for lock by "Muhammed@DESKTOP-92QOO75, pid = 6116
-". Lockfile is "C:/GitHub/CSE3215_TermProject_2023/Phase 3/work/_lock".
-** Warning: (vlog-6) -- Waiting for lock by "Muhammed@DESKTOP-92QOO75, pid = 6116
-". Lockfile is "C:/GitHub/CSE3215_TermProject_2023/Phase 3/work/_lock".
-** Warning: (vlog-6) -- Waiting for lock by "Muhammed@DESKTOP-92QOO75, pid = 6116
-". Lockfile is "C:/GitHub/CSE3215_TermProject_2023/Phase 3/work/_lock".
-** Warning: (vlog-6) -- Waiting for lock by "Muhammed@DESKTOP-92QOO75, pid = 6116
-". Lockfile is "C:/GitHub/CSE3215_TermProject_2023/Phase 3/work/_lock".
-** Warning: (vlog-6) -- Waiting for lock by "Muhammed@DESKTOP-92QOO75, pid = 6116
-". Lockfile is "C:/GitHub/CSE3215_TermProject_2023/Phase 3/work/_lock".
-** Warning: (vlog-6) -- Waiting for lock by "Muhammed@DESKTOP-92QOO75, pid = 6116
-". Lockfile is "C:/GitHub/CSE3215_TermProject_2023/Phase 3/work/_lock".
-** Warning: (vlog-6) -- Waiting for lock by "Muhammed@DESKTOP-92QOO75, pid = 6116
-". Lockfile is "C:/GitHub/CSE3215_TermProject_2023/Phase 3/work/_lock".
-** Warning: (vlog-6) -- Waiting for lock by "Muhammed@DESKTOP-92QOO75, pid = 6116
-". Lockfile is "C:/GitHub/CSE3215_TermProject_2023/Phase 3/work/_lock".
-** Warning: (vlog-6) -- Waiting for lock by "Muhammed@DESKTOP-92QOO75, pid = 6116
-". Lockfile is "C:/GitHub/CSE3215_TermProject_2023/Phase 3/work/_lock".
-** Warning: (vlog-6) -- Waiting for lock by "Muhammed@DESKTOP-92QOO75, pid = 6116
-". Lockfile is "C:/GitHub/CSE3215_TermProject_2023/Phase 3/work/_lock".
-** Warning: (vlog-6) -- Waiting for lock by "Muhammed@DESKTOP-92QOO75, pid = 6116
-". Lockfile is "C:/GitHub/CSE3215_TermProject_2023/Phase 3/work/_lock".
-** Warning: (vlog-6) -- Waiting for lock by "Muhammed@DESKTOP-92QOO75, pid = 6116
-". Lockfile is "C:/GitHub/CSE3215_TermProject_2023/Phase 3/work/_lock".
-
-} {} {}}
+} {4.0 6.0} {}}

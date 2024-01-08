@@ -4,6 +4,7 @@ module ControlUnit(
     input equal,
     input above,
     input Clock,
+    output reg WritePC,
     output reg Clear,
     output reg isJump,
     output [13:0] JumpAddress,
@@ -20,6 +21,7 @@ module ControlUnit(
 
 always_comb begin
     Clear = 0;
+    WritePC = 1;
     isJump = 0;
     JumpAddress = 0;
     isImm = 0;
