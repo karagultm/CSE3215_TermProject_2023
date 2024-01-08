@@ -7,7 +7,7 @@ module ROM (
 // size of the memory is 2^18 = 262144
 reg [19:0] mem [0:262143];
 
-output = mem[Address];
+Data = mem[Address];
 
 initial begin
     $readmemh("output.hex", mem);
