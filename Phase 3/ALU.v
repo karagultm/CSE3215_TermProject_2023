@@ -4,6 +4,7 @@ module ALU (
     input [1:0] ALUControl,
     output reg [17:0] Output
 );
+
     always @*
     begin
         case (ALUControl)

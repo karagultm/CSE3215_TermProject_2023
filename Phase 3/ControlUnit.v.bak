@@ -31,7 +31,6 @@ always_comb begin
     writeRegEnable = 0;
     memToReg = 0;
     writeMemEnable = 0;
-
     case (Instruction[17:15])
         //ADD
         4'b0000:begin

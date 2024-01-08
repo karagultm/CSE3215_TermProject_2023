@@ -1,6 +1,7 @@
 m255
 K4
 z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
 13
 !s112 1.1
 !i10d 8192
@@ -8,3 +9,98 @@ z2
 !i10f 100
 cModel Technology
 dC:/intelFPGA/20.1
+vALU
+Z0 !s110 1704752187
+!i10b 1
+!s100 Ie<MU6CzzecI_[HCTA4FN2
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I1M:j?emCB2V0YUVDio^HH0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dC:/GitHub/CSE3215_TermProject_2023/Phase 3
+w1704751748
+8C:/GitHub/CSE3215_TermProject_2023/Phase 3/ALU.v
+FC:/GitHub/CSE3215_TermProject_2023/Phase 3/ALU.v
+!i122 28
+L0 1 18
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+!s108 1704752186.000000
+!s107 C:/GitHub/CSE3215_TermProject_2023/Phase 3/ALU.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/GitHub/CSE3215_TermProject_2023/Phase 3/ALU.v|
+!i113 1
+Z5 o-work work
+Z6 tCvgOpt 0
+n@a@l@u
+vcpu
+R0
+!i10b 1
+!s100 Pdg4h=S:TMBTcMl<6AM6B1
+R1
+Im??PVRcP2CeGMYfAah<Ie1
+R2
+R3
+w1704741282
+8C:/GitHub/CSE3215_TermProject_2023/Phase 3/cpu.v
+FC:/GitHub/CSE3215_TermProject_2023/Phase 3/cpu.v
+!i122 31
+L0 1 6
+R4
+r1
+!s85 0
+31
+Z7 !s108 1704752187.000000
+!s107 C:/GitHub/CSE3215_TermProject_2023/Phase 3/cpu.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/GitHub/CSE3215_TermProject_2023/Phase 3/cpu.v|
+!i113 1
+R5
+R6
+vRAM
+R0
+!i10b 1
+!s100 fl7<EKTLj?l?]D:h5V9Q62
+R1
+ILI@7Z0C<12a9R;ZhDa?3U2
+R2
+R3
+w1704750715
+8C:/GitHub/CSE3215_TermProject_2023/Phase 3/RAM.v
+FC:/GitHub/CSE3215_TermProject_2023/Phase 3/RAM.v
+!i122 30
+L0 2 33
+R4
+r1
+!s85 0
+31
+R7
+!s107 C:/GitHub/CSE3215_TermProject_2023/Phase 3/RAM.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/GitHub/CSE3215_TermProject_2023/Phase 3/RAM.v|
+!i113 1
+R5
+R6
+n@r@a@m
+vROM
+R0
+!i10b 1
+!s100 P]=9j7G5?<<<niiY[]QV63
+R1
+I2a>7^Q1=iL?FigkI?6FRc1
+R2
+R3
+w1704750668
+8C:/GitHub/CSE3215_TermProject_2023/Phase 3/ROM.v
+FC:/GitHub/CSE3215_TermProject_2023/Phase 3/ROM.v
+!i122 29
+L0 2 15
+R4
+r1
+!s85 0
+31
+R7
+!s107 C:/GitHub/CSE3215_TermProject_2023/Phase 3/ROM.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/GitHub/CSE3215_TermProject_2023/Phase 3/ROM.v|
+!i113 1
+R5
+R6
+n@r@o@m
