@@ -64,6 +64,31 @@ module ALU (
     output [17:0] Output,
 );
 
+always@(ALUControl)
+begin
+    case(ALUControl)
+        2'b00: Output = A + B; // DD status
+        2'b01: Output = A & B; // AND status
+        2'b10: Output = ~(A & B); // NAND status
+        2'b11: Output = ~(A | B); // NOR status
+        default: Output = 0;
+    endcase
+end
+endmodule
+
+module RegisterFile(
+    input [17:0] ReadAddress1,
+    input [17:0] ReadAddress2,
+    input [17:0] WriteAddress,
+    input [17:0] WriteData,
+    input WriteEnable,
+    input Clock,
+    input Clear,
+    output [17:0] ReadData1,
+    output [17:0] ReadData2,
+
+);
+
 
 
 endmodule
