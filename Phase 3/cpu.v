@@ -17,6 +17,19 @@ module d_flip_flop(input D, input C, output Q);
     end
 endmodule
 
+module d_latch(input D, input C, output reg Q);
+    always @(D or C)
+        if (C = 1)
+            Q <= D;
+endmodule
+
+
+module d_flip_flop(input D, input C, output Q);
+    always @(posedge C) begin
+        Q <= D;
+    end
+endmodule
+
 module 1_bit_adder(input A, input B, input Cin, output Output, output Cout);
     assign Output = xor xorGate(A, B, Cin);
     assign Cout = A & B | A & Cin | B & Cin;
