@@ -1,47 +1,112 @@
+module cpu (
+    input Clock
+);
 
-module d_latch(input D, input C, output Q);
-    wire S1, R1, Q1, Q2;
-    assign S1 = D & C;
-    assign R1 = ~D & C;
-    nor upperNOR(Q2, S1, Q1);
-    nor lowerNOR(Q1, R1, Q2);
-    assign Q = Q1;
-endmodule
+wire Clear;
+wire WritePC;
+wire isJump;
+wire [13:0] JumpAddress;
+wire isImm;
+wire [5:0] Imm;
+wire [1:0] ALUControl;
+wire [17:0] Instruction;
+wire above;
+wire equal;
+wire below;
 
+wire [17:0] ReadData1;
+wire [17:0] ReadData2;
+wire [17:0] WriteData;
+wire WriteEnable;
+wire [3:0] ReadSelect1;
+wire [3:0] ReadSelect2;
+wire [3:0] WriteSelect;
+wire [17:0] PCoutput;
+wire [19:0] Data; // De?i?iklik burada
 
-module d_flip_flop(input D, input C, output Q);
-    wire Q1;
-    always @(posedge C) begin
-        d_latch dl1(D, ~C, Q1);
-        d_latch dl2(Q1, C, Q);
+PC pc (
+    .Clock(Clock),
+    .isJump(isJump),
+    .Clear(Clear),
+    .Write(WritePC),
+    .JumpAddress(JumpAddress),
+    .PC(PCoutput)
+);
+
+ROM rom (
+    .Address(PCoutput),
+    .Data(Data) // De?i?iklik burada
+);
+
+ControlUnit controlunit (
+    .Instruction(Data), // De?i?iklik burada
+    .above(above),
+    .equal(equal),
+    .below(below),
+    .Clock(Clock),
+    .Clear(Clear),
+    .WritePC(WritePC),
+    .isJump(isJump),
+    .JumpAddress(JumpAddress),
+    .isImm(isImm),
+    .Imm(Imm),
+    .ALUControl(ALUControl),
+    .Src1(ReadSelect1),
+    .Src2(ReadSelect2),
+    .Dst(WriteSelect),
+    .writeRegEnable(WriteEnable),
+    .memToReg(memToReg),
+    .writeMemEnable(regWrite) // Assuming regWrite is a typo of writeMemEnable
+);
+
+RegisterFile registerfile (
+    .ReadSelect1(ReadSelect1),
+    .ReadSelect2(ReadSelect2),
+    .WriteSelect(WriteSelect),
+    .WriteData(WriteData),
+    .WriteEnable(WriteEnable),
+    .Clock(Clock),
+    .Clear(Clear),
+    .ReadData1(ReadData1),
+    .ReadData2(internal_ReadData2) 
+);
+
+wire [17:0] internal_ReadData2;
+
+ReadData2 = internal_ReadData2;
+
+Comperator comperator (
+    .A(ReadData1),
+    .B(ReadData2),
+    .above(above),
+    .equal(equal),
+    .below(below)
+);
+
+ALU alu (
+    .A(ReadData1),
+    .B(ReadData2),
+    .ALUControl(ALUControl),
+    .Output(WriteData)
+);
+
+RAM ram (
+    .Address(WriteData),
+    .Clock(Clock),
+    .Clear(Clear),
+    .Load(memToReg),
+    .DataIn(ReadData2),
+    .DataOut(WriteData),
+    .Write(WriteEnable)
+);
+
+always @(posedge Clock)
+begin
+    if (isImm)
+    begin
+        ReadData2 <= Imm + 18'b0;
     end
-endmodule
-
-module 1_bit_adder(input A, input B, input Cin, output Output, output Cout);
-    assign Output = xor xorGate(A, B, Cin);
-    assign Cout = A & B | A & Cin | B & Cin;
-endmodule
-
-module 18_bit_adder (
-    input [17:0] A, 
-    input [17:0] B, 
-    input Cin, 
-    output [17:0] Output, 
-    output Cout);
-
-    genvar i;
-    generate
-        for (i = 0; i < 18; i = i + 1) begin : gen_loop
-        bit_adder_1 adder_inst (
-            .A(A[i]),
-            .B(B[i]),
-            .Cin(i == 0 ? Cin : adder_inst.Cout),
-            .Output(Output[i]),
-            .Cout(adder_inst.Cout)
-        );
-        end
-    endgenerate
+end
 
 endmodule
 
-module 

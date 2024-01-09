@@ -7,7 +7,7 @@ module RegisterFile(
     input Clock,
     input Clear,
     output [17:0] ReadData1,
-    output [17:0] ReadData2,
+    output [17:0] ReadData2
 );
 
 //our 16 bit register 
@@ -16,7 +16,7 @@ reg [15:0]  reg0,reg1,reg2,reg3,
             reg8,reg9,reg10,reg11,
             reg12,reg13,reg14,reg15; 
     
-
+reg [15:0] reg_temp;
 //Read Part of the Register File
 //Read Data 1
 always@(*)
@@ -39,7 +39,9 @@ begin
         4'b1110: ReadData1 = reg14;
         4'b1111: ReadData1 = reg15;
     endcase
-
+end
+always@(*)
+begin
     //Read Data 2
     case (ReadSelect2)
         4'b0000: ReadData2 = reg0;
@@ -47,7 +49,7 @@ begin
         4'b0010: ReadData2 = reg2;
         4'b0011: ReadData2 = reg3;
         4'b0100: ReadData2 = reg4;
-        4'b0101: ReadData2 = reg5;
+	4'b0101: ReadData2 = reg5;
         4'b0110: ReadData2 = reg6;
         4'b0111: ReadData2 = reg7;
         4'b1000: ReadData2 = reg8;
@@ -64,33 +66,43 @@ begin
 end
 
 //Write Part of the Register File
-always @(posedge Clock and WriteEnable) 
-begin
+always @(posedge Clock) 
+begin	
+   if (WriteEnable)
+    begin
     case (WriteSelect)
-        4'b0000: reg0 = WriteData;
-        4'b0001: reg1 = WriteData;
-        4'b0010: reg2 = WriteData;
-        4'b0011: reg3 = WriteData;
-        4'b0100: reg4 = WriteData;
-        4'b0101: reg5 = WriteData;
-        4'b0110: reg6 = WriteData;
-        4'b0111: reg7 = WriteData;
-        4'b1000: reg8 = WriteData;
-        4'b1001: reg9 = WriteData;
-        4'b1010: reg10 = WriteData;
-        4'b1011: reg11 = WriteData;
-        4'b1100: reg12 = WriteData;
-        4'b1101: reg13 = WriteData;
-        4'b1110: reg14 = WriteData;
-        4'b1111: reg15 = WriteData; 
-	
+        4'b0000: reg0 <= WriteData;
+        4'b0001: reg1 <= WriteData;
+        4'b0010: reg2 <= WriteData;
+        4'b0011: reg3 <= WriteData;
+        4'b0100: reg4 <= WriteData;
+        4'b0101: reg5 <= WriteData;
+        4'b0110: reg6 <= WriteData;
+        4'b0111: reg7 <= WriteData;
+        4'b1000: reg8 <= WriteData;
+        4'b1001: reg9 <= WriteData;
+        4'b1010: reg10 <= WriteData;
+        4'b1011: reg11 <= WriteData;
+        4'b1100: reg12 <= WriteData;
+        4'b1101: reg13 <= WriteData;
+        4'b1110: reg14 <= WriteData;
+        4'b1111: reg15 <= WriteData; 
     endcase
+    end
 end
 
 //Clear Part of the Register File
-always @(posedge Clock and Clear)
+
+
+always @(posedge Clock or posedge Clear)
 begin
-    reg [15:0] = 0;
+if(Clear)
+begin
+    reg_temp = 0;
+    reg0 <= reg_temp;
+    reg1 <= reg_temp;
+    // ... repeat for other registers
+end
 end
 
 endmodule
